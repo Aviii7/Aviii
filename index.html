@@ -3,17 +3,20 @@
     <body>
         <!--
         
-        CS3 | Module 8.2
-        Variable Declarations and Data Types
+        CS3 | Module 8.4
+        Basic I/O
 
         Objectives
-          - To identify the keywords used in JavaScript
-          - To incorporate JavaScript inside HTML documents 
-          - To practice the ethical standards regarding 
-            the use of JavaScript in browsers 
+          - To identify common errors in using JavaScript  
+          - To represent data using the correct types and
+            create variables for representation 
+          - To use different programming statements in 
+            JavaScript 
+          - To value good coding practices
+
 
         Created by Kyle Enorio.
-        January 8, 2025.
+        January 15, 2025.
 
         For use only within PSHS-SRC. Sharing of this code to 
           outside entities is strictly prohibited.
@@ -26,217 +29,94 @@
         -->
 
 
-        <!-- Declaring variables using var, part 1 -->
+        <!-- Generating output to browser console -->
         <script>
-            // It is possible to redeclare a variable.
-            var name;
-            var name = 'Kyle Enorio';
+            let a = 5, b = 8;
+            let c = a ** b;
 
-            document.write('The value of name is ' + name);
-            document.write('<br><br>');
-
-            // It is possible to change the value of a variable.
-            var x = 5;
-            x = 3;
-
-            document.write('The value of x is ' + x + '<br><br>');  
-
-            // It is possible to declare multiple variables in one line.
-            var firstName = 'Kyle', lastName = 'Enorio';
-
-            document.write(firstName + ' ' + lastName);
-            document.write('<br><br>');
-
-            // It is possible to declare multiple vairables with the
-            // same value.
-            var a=b=c=5;
-
-            document.write(a + ' ' + b + ' ' + c);
-            document.write('<br><br>');
+            console.log(c);
         </script>
 
 
-        <!-- Declaring variables using var, part 2 -->
+        <!-- Writing output to alert dialogs -->
+        <button onclick="showDialog()">Click me to show an alert dialog!</button>
         <script>
-            // It is possible to redeclare a variable.
-            document.write(name + '<br><br>');
-
-            var name = 'Kyle Enorio';   
+            function showDialog() {
+                alert('Hello, world!');
+            }
         </script>
 
-
-        <!-- Declaring variables using let, part 1 -->
-        <script>
-            // It is not possible to redeclare a variable.
-            // The code below will throw an error.
-            let name;
-            let name = 'Kyle Enorio';
-        </script>
+        <br><br><br><br>
 
 
-        <!-- Declaring variables using let, part 2 -->
-        <script>
-            function varScoping() {
-                var x = 1;
-
-                if (true) {
-                    var x = 2;
-                    console.log(x); // will print 2
-                }
-
-                console.log(x); // will print 2
+        <!-- Display output to the browser window -->
+         <button onclick="writeToDocument()">Click me to write to the document!</button>
+         <script>
+            function writeToDocument() {
+                document.write('Hello, world!');
             }
 
-            function letScoping() {
-                let x = 1;
+            document.write('<br><br>');
+            document.write('a ** b = ');
+            document.write(c);
 
-                if (true) {
-                    let x = 2;
-                    console.log(x); // will print 2
-                }
+         </script>
 
-                console.log(x); // will print 1
+        <br><br>
+
+        <!-- Inserting output inside an HTML document -->
+         <p id="text">Lorem ipsum</p>
+         <button onclick="writeToElement()">Click me to write to an element!</button>
+         <script>
+            function writeToElement() {
+                document.getElementById('text').innerHTML = 'Magic!';
             }
 
-            varScoping();
-            letScoping();
+         </script>
+
+        <br><br>
+
+        <!-- Using a prompt box -->
+        <p id="result">Click the button below!</p>
+         <button onclick="promptInput()">Click me to show a prompt dialog!</button>
+         <script>
+            function promptInput() {
+                let number1 = prompt('Enter value for first number:');
+                let number2 = prompt('Enter value for second number:');
+
+                let sum = parseInt(number1) + parseInt(number2);
+
+                document.getElementById('result').innerHTML = `a + b = ${sum}`;
+            }
         </script>
 
+        <br><br>
 
-        <!-- Declaring variables using const -->
+        <!-- Using a prompt box -->
+        <p id="choice">Lorem ipsum</p>
+         <button onclick="promptConfirm()">Click me to show a confirm dialog!</button>
+         <script>
+            function promptConfirm() {
+                let result = confirm('Click a button!');
+
+                if(result == true) {
+                    document.getElementById('choice').innerHTML = 'You clicked Ok!';
+                }
+                else {
+                    document.getElementById('choice').innerHTML = 'You clicked Cancel!';
+                }
+            }
+         </script>
+
+        <br><br>
+
+        <!-- Practice exercise-->
+        <p id="product"></p>
         <script>
-            const PI = 3.14;
-            let radius = 5;
-
-            document.write('Area is ' + (PI * radius * radius));
-            document.write('<br><br>');
-        </script>
-
-
-        <!-- Data types -->
-        <script>
-            let message = 'Hello, world!';  // string
-            let circumference = 40075;      // number
-            let isEarthRound = true;        // boolean
-            let nullValue = null;           // null
-            let unassigned;                 // undefined
-        </script>
-
-
-        <!-- Strings -->
-        <script>
-            // Can be in single quotes.
-            let message1 = 'Single quotes!';
-            // Can be in double quotes.
-            let message2 = "Double quotes!";
-
-            // Double quotes inside single quotes.
-            let message3 = 'She said, "Good morning."';
-            // Single quotes inside double quotes.
-            let message4 = "When it's midnight";
-
-            // Single quotes inside single quotes.
-            let message5 = 'I\'m a string!'
-            // Double quotes inside double quotes.
-            let message6 = "\"Hello\", said he."
-
-            // Strings can be combined using +.
-            let firstName = 'Kyle';
-            let lastName = 'Enorio';
-            let fullNamePlus = firstName + ' ' + lastName;
-
-            document.write('+:' + fullNamePlus);
-            document.write('<br><br>');
-
-            // Strings can be combined using concat.
-            let fullNameConcat = firstName.concat(' ', lastName);
-
-            document.write('concat:' + fullNameConcat);
-            document.write('<br><br>');
-
-            // Strings can be combined using template literals.
-            let fullNameTemplate = `${firstname} ${lastName}`;
-
-            document.write('Using +:' + fullNameTemplate);
-            document.write('<br><br>');
-        </script>
-
-
-        <!-- Numbers -->
-        <script>
-            let x = 5;      // integer
-            let y = 1.5     // float
-            let z = -10     // negative integer
-
-            // Maximum is 15 digits.
-            let largeNumber = 999999999999999;
-
-            // Numbers can be in e-notation.
-            // Number below is equal to 299800000
-            let shortNumber = 2.998e8;
-
-            // Mathematical operations using numbers.
-            let add = 1 + 0.5;
-            let subtract = -15 - 67;
-
-            // Mathematical operations using variables.
-            let total = x + y;
-
-            // Results to NaN (Not a Number).
-            let notNum = 5 / 'Five';
-
-            document.write(notNum);
-            document.write('<br><br>');
-
-            // Results to Infinity.
-            let endless = 1 / 0;
-
-            document.write(endless);
-            document.write('<br><br>');
-        </script>
-
-
-        <!-- Booleans -->
-        <script>
-            // Booleans can be true or false.
-            let state = true;
-
-            // Can be used to track the state of elements.
-            // Below can be used to store the value of a checkbox.
-            let isChecked = false;
-        </script>
-
-
-        <!-- Undefined -->
-        <script>
-            // Variables with no value is undefined.
-            let noValue;
-        </script>
-
-
-        <!-- Undefined -->
-        <script>
-            // Variables where an empty value is assigned.
-            let empty = null;
-        </script>
-
-
-        <!-- Symbol -->
-        <script>
-            // Creates unique objects from a key.
-            let unique1 = Symbol('test');   
-            let unique2 = Symbol('test');
-
-            document.write(unique1 == unique2);
-            document.write('<br><br>');
-        </script>
-
-
-        <!-- Practice Exercise -->
-        <script>
-            // Insert code here...
+           // Insert code here...
         </script>
     </body>
+</html>
 </html>
 
 
