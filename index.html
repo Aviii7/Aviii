@@ -68,7 +68,7 @@
             // If the function has arguments, be sure to 
             // to write provide the arguments.
             // Remove the comment to call the function.
-            // product(5, 15);
+            product(5, 15);
 
             // It is possible to call a function before 
             // declaration, although not recommended.
@@ -102,6 +102,13 @@
         <p id="output"></p>
         <script>
             // Insert code here...
+
+            function cube_Of_Number(number) {
+                let cube = number ** 3;
+                return cube;
+            }
+            let resalt = cube_Of_Number(9);
+            document.getElementById("output") = resalt;
         </script>
     </body>
 </html>
