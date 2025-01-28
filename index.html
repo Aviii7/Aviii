@@ -7,16 +7,14 @@
         Basic I/O
 
         Objectives
-          - To identify common errors in using JavaScript  
-          - To represent data using the correct types and
-            create variables for representation 
-          - To use different programming statements in 
-            JavaScript 
-          - To value good coding practices
+          - To identify functions or methods and parameters 
+          - To demonstrate the use of functions
+          - To appreciate the role functions in promoting 
+            code reusability
 
 
         Created by Kyle Enorio.
-        January 15, 2025.
+        January 22, 2025.
 
         For use only within PSHS-SRC. Sharing of this code to 
           outside entities is strictly prohibited.
@@ -28,101 +26,84 @@
         
         -->
 
-
-        <!-- Generating output to browser console -->
+        <!-- Declaring functions -->
+         <button onclick="showMessage()">Click me to show a message!</button>
+         <br><br>
+         <button onclick="add(5,3)">Click me to add values!</button>
         <script>
-            let a = 5, b = 8;
-            let c = a ** b;
-
-            console.log(c);
-        </script>
-
-
-        <!-- Writing output to alert dialogs -->
-        <button onclick="showDialog()">Click me to show an alert dialog!</button>
-        <script>
-            function showDialog() {
+            // Basic example of declaring a function
+            function showMessage() {
                 alert('Hello, world!');
             }
-        </script>
-
-        <br><br><br><br>
 
 
-        <!-- Display output to the browser window -->
-         <button onclick="writeToDocument()">Click me to write to the document!</button>
-         <script>
-            function writeToDocument() {
-                document.write('Hello, world!');
+            // Function with two parameters
+            function add(a, b) {
+                let sum = a + b;
+                alert(a + ' + ' + b + ' = ' + sum);
             }
 
-            document.write('<br><br>');
-            document.write('a ** b = ');
-            document.write(c);
-
-         </script>
-
-        <br><br>
-
-        <!-- Inserting output inside an HTML document -->
-         <p id="text">Lorem ipsum</p>
-         <button onclick="writeToElement()">Click me to write to an element!</button>
-         <script>
-            function writeToElement() {
-                document.getElementById('text').innerHTML = 'Magic!';
-            }
-
-         </script>
-
-        <br><br>
-
-        <!-- Using a prompt box -->
-        <p id="result">Click the button below!</p>
-         <button onclick="promptInput()">Click me to show a prompt dialog!</button>
-         <script>
-            function promptInput() {
-                let number1 = prompt('Enter value for first number:');
-                let number2 = prompt('Enter value for second number:');
-
-                let sum = parseInt(number1) + parseInt(number2);
-
-                document.getElementById('result').innerHTML = `a + b = ${sum}`;
-            }
+            // Will throw an error because sum 
+            // is inside function!
+            // Remove the comment to run the code.
+            // alert(sum);
         </script>
 
         <br><br>
 
-        <!-- Using a prompt box -->
-        <p id="choice">Lorem ipsum</p>
-         <button onclick="promptConfirm()">Click me to show a confirm dialog!</button>
-         <script>
-            function promptConfirm() {
-                let result = confirm('Click a button!');
-
-                if(result == true) {
-                    document.getElementById('choice').innerHTML = 'You clicked Ok!';
-                }
-                else {
-                    document.getElementById('choice').innerHTML = 'You clicked Cancel!';
-                }
-            }
-         </script>
-
-        <br><br>
-
-        <!-- Practice exercise-->
-        <p id="product"></p>
+        <!-- Calling functions -->
         <script>
-           // Insert code here...
-            let number3 = prompt('Enter value for first number:');
-            let number4 = prompt('Enter value for second number:');
+            function sayHi() {
+                alert('Hi!');
+            }
 
-            let solution = parseInt(number3) * parseInt(number4);
-            document.getElementById('product').innerHTML = solution;
+            // Remove the comment to call the function.
+            // sayHi();
 
+            function product(a, b) {
+                let product = a * b;
+                alert(a + ' * ' + b + ' = ' + product);
+            }
+
+            // If the function has arguments, be sure to 
+            // to write provide the arguments.
+            // Remove the comment to call the function.
+            // product(5, 15);
+
+            // It is possible to call a function before 
+            // declaration, although not recommended.
+            // Remove the comment to call the function.
+            // sayHello();
+            function sayHello() {
+                alert('Hello!');
+            }
+        </script>
+
+        <br><br>
+
+        <!-- Returning values -->
+        <script>
+            // Returns a string
+            function getWord() {
+                return 'Ahoy!';
+            }
+
+            let greeting = getWord();
+
+            function addTwoNumbers(number1, number2) {
+                let sum = number1 + number2;
+                return sum;
+            }
+
+            let result = addTwoNumbers(5, 10);
+        </script>
+
+        <!-- Practice exercise -->
+        <p id="output"></p>
+        <script>
+            // Insert code here...
         </script>
     </body>
-</html>
 </html>
 
 
