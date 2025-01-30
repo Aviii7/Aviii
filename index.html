@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
-    <body>
+    <body id="html-body" onload="changeBackground()">
         <!--
         
-        CS3 | Module 8.4
-        Basic I/O
+        CS3 | Module 9.2
+        Event Handlers
 
         Objectives
-          - To identify functions or methods and parameters 
-          - To demonstrate the use of functions
-          - To appreciate the role functions in promoting 
-            code reusability
+          - To explain the concept of events and triggers
+          - To create necessary code to capture events 
+            and handle events
 
 
         Created by Kyle Enorio.
-        January 22, 2025.
+        January 28, 2025.
 
         For use only within PSHS-SRC. Sharing of this code to 
           outside entities is strictly prohibited.
@@ -26,89 +25,48 @@
         
         -->
 
-        <!-- Declaring functions -->
-         <button onclick="showMessage()">Click me to show a message!</button>
-         <br><br>
-         <button onclick="add(5,3)">Click me to add values!</button>
-        <script>
-            // Basic example of declaring a function
-            function showMessage() {
-                alert('Hello, world!');
-            }
-
-
-            // Function with two parameters
-            function add(a, b) {
-                let sum = a + b;
-                alert(a + ' + ' + b + ' = ' + sum);
-            }
-
-            // Will throw an error because sum 
-            // is inside function!
-            // Remove the comment to run the code.
-            // alert(sum);
-        </script>
+        <!-- onclick events -->
+        <button onclick="respondToClick()">Click me!</button>
+        <br><br>
+        <button onclick="divide(5,15)"></button>
 
         <br><br>
 
-        <!-- Calling functions -->
+        <img id="changing-image" src="https://cdn.britannica.com/34/235834-050-C5843610/two-different-breeds-of-cats-side-by-side-outdoors-in-the-garden.jpg" height="200px" />
+        <br><br>
+        <button onclick="changeImage()">Click me to change the image!</button>
+
         <script>
-            function sayHi() {
-                alert('Hi!');
+            function respondToClick() {
+                alert('You touched me!');
             }
 
-            // Remove the comment to call the function.
-            // sayHi();
-
-            function product(a, b) {
-                let product = a * b;
-                alert(a + ' * ' + b + ' = ' + product);
+            function divide(a, b) {
+                alert(a / b);
             }
 
-            // If the function has arguments, be sure to 
-            // to write provide the arguments.
-            // Remove the comment to call the function.
-            // product(5, 15);
-
-            // It is possible to call a function before 
-            // declaration, although not recommended.
-            // Remove the comment to call the function.
-            // sayHello();
-            function sayHello() {
-                alert('Hello!');
+            function changeImage() {
+                document.getElementById('changing-image').src = 'https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg'
             }
         </script>
 
-        <br><br>
-
-        <!-- Returning values -->
+        <!-- onload events -->
         <script>
-            // Returns a string
-            function getWord() {
-                return 'Ahoy!';
+            function changeBackground() {
+                let r = Math.random() * 255;
+                let g = Math.random() * 255;
+                let b = Math.random() * 255;
+
+                var color = 'rgb(' + r + ',' + b + ',' + g + ')';
+
+                document.getElementById('html-body').style.backgroundColor = color;
             }
-
-            let greeting = getWord();
-
-            function addTwoNumbers(number1, number2) {
-                let sum = number1 + number2;
-                return sum;
-            }
-
-            let result = addTwoNumbers(5, 10);
         </script>
 
         <!-- Practice exercise -->
-        <p id="output"></p>
+        <p id="practice-output"></p>
         <script>
             // Insert code here...
-
-            function cube_Of_Number(number) {
-                let cube = number ** 3;
-                return cube;
-            }
-            let resalt = cube_Of_Number(9);
-            document.getElementById("output") = resalt;
         </script>
     </body>
 </html>
